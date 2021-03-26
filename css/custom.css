@@ -102,8 +102,12 @@
   background: #fcfcfc;
   border-radius: 3px;
   box-shadow: 0 0px 20px rgb(0 0 0 / 20%);
+  transition: .3s;
 }
-
+.detail-item:hover {
+  box-shadow: 0 15px 25px rgb(0 0 0 / 50%);
+  transform: translateY(-4px);
+}
 
 
 
