@@ -41,11 +41,11 @@
 					the_privacy_policy_link( '<span>', '</span>' );
 				}
 
-				$credit_text = apply_filters(
-					'siteorigin_unwind_footer_credits',
-					'<span>' . sprintf( esc_html__( 'Theme by %s', 'siteorigin-unwind' ), '<a href="https://siteorigin.com/">SiteOrigin</a>' ) . '</span>'
-				);
-
+				// $credit_text = apply_filters(
+				// 	'siteorigin_unwind_footer_credits',
+				// 	'<span>' . sprintf( esc_html__( 'Theme by %s', 'siteorigin-unwind' ), '<a href="https://siteorigin.com/">SiteOrigin</a>' ) . '</span>'
+				// );
+				$credit_text = ' - All rights reserved.';
 				if ( ! empty( $credit_text ) ) {
 					echo wp_kses_post( $credit_text );
 				}
