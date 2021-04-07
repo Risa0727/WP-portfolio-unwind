@@ -57,7 +57,14 @@ if ( have_posts() ) :
 
 	</div><!-- .left-medium-loop -->
 
-	<?php siteorigin_unwind_posts_navigation();
+
+
+	<?php
+	if( function_exists('pagenation') ){ // 関数が定義されていたらtrueになる
+	    pagenation();
+	}?>
+	
+	<?php //siteorigin_unwind_posts_navigation();
 
 else :
 

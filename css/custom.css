@@ -109,9 +109,33 @@
   transform: translateY(-4px);
 }
 
+/**
+ * Pagenation
+*/
+.pagenation-wrapper {
 
+}
+.pagenation-wrapper ul {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.pagenation-wrapper ul li {
+  padding: 2px 12px;
+  border: 1px solid #222;
+  border-radius: 50%;
+  margin: 0 5px;
 
-
+}
+.pagenation-wrapper ul li a {
+    color: #000;
+}
+.pagenation-wrapper ul li.current {
+  background: #cf2e2e;
+    color: #fff;
+    border-color: #cf2e2e;
+}
 
 
 /**

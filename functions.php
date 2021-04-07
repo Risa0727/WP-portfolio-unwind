@@ -324,3 +324,32 @@ add_action( 'after_setup_theme', 'siteorigin_unwind_premium_setup' );
 }
 //アクションフック（wp_enqueue_scripts）への登録
 add_action('wp_enqueue_scripts', 'add_my_files');
+
+
+
+function pagenation($pages = '', $range = 3){
+    $showitems = ($range * 1)+1;
+    global $paged;
+    if(empty($paged)) $paged = 1;
+    if($pages == ''){
+        global $wp_query;
+        $pages = $wp_query->max_num_pages;
+        if(!$pages){
+            $pages = 1;
+        }
+    }
+    if(1 != $pages){
+        // 画像を使う時用に、テーマのパスを取得
+        $img_pass = get_template_directory_uri();
+        echo "<div class='pagenation-wrapper'>";
+        // ページ番号を出力
+        echo "<ul class='pagenation-list'>";
+        for ($i=1; $i <= $pages; $i++){
+            if (1 != $pages &&( !($i >= $paged+$range+1 || $i <= $paged-$range-1) || $pages <= $showitems )){
+                echo ($paged == $i)? "<li class='current'>".$i."</li>": // 現在のページの数字はリンク無し
+                    "<li><a href='".get_pagenum_link($i)."'>".$i."</a></li>";
+            }
+        }
+        echo "</ul>\n";
+    }
+}
