@@ -12,6 +12,12 @@
   display: none;
 }
 /**
+ * Footer
+ */
+#colophon .site-info {
+  padding: 7px 0;
+}
+/**
  * Homepage
  */
 /* Banner */
