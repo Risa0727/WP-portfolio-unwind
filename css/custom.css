@@ -36,10 +36,22 @@
   */
 .site-branding img {
   max-width: 80%;
+  transition: all .5s;
 }
 #masthead .site-branding .site-description {
   display: none;
 }
+#masthead .sticky-bar {
+  height: 120px !important;
+  transition: all .5s;
+}
+#masthead .sticky-bar.is-scroll {
+  height: 80px !important;
+}
+#masthead .sticky-bar.is-scroll .site-branding img {
+  max-width: 50%;
+}
+
 /**
  * Footer
  */

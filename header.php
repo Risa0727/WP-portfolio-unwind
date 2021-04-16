@@ -20,6 +20,34 @@
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 
 <?php wp_head(); ?>
+
+<script>
+jQuery( function( $ ) {
+
+
+	var header = $('#masthead .sticky-bar');
+	var logo = $('.site-branding');
+	var navi = $('.site-navigation');
+  $scroll = $(window).scrollTop();
+	var headerH = header.outerHeight(true);
+
+	console.log(headerH);
+
+	$(window).on('scroll', function() {
+		  $scroll = $(window).scrollTop();
+
+			if ($scroll >= headerH) {
+				header.addClass('is-scroll');
+			} else if ($scroll <= headerH) {
+				header.removeClass('is-scroll');
+
+			}
+
+	});
+
+});
+</script>
+
 </head>
 
 <body <?php body_class(); ?>>
