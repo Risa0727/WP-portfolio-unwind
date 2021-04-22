@@ -91,6 +91,7 @@
 .caption p {
   font-size: 1.2em;
   line-height: 1.4;
+  margin: 0 0 1em;
 }
 /* Download CV */
 .btn-container {
@@ -203,7 +204,7 @@
 /* Maxim */
 .maxim h2 {
   font-family: 'Caveat', cursive;
-  font-size: 3.5rem;
+  font-size: 4rem;
   color: #fff;
   text-shadow: 3px 3px #414141;
   line-height: 1.2;
