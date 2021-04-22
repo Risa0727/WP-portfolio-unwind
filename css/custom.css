@@ -63,6 +63,11 @@
  * Homepage
  */
 /* Banner */
+.home-banner {
+  background-position: center right !important;
+  background-attachment: fixed;
+}
+/* 使ってない */
 .metaslider_container_17 {
   overflow: hidden;
 }
