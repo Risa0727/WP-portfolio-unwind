@@ -325,6 +325,14 @@ add_action( 'after_setup_theme', 'siteorigin_unwind_premium_setup' );
 //アクションフック（wp_enqueue_scripts）への登録
 add_action('wp_enqueue_scripts', 'add_my_files');
 
+// Add js file
+function add_my_script() {
+  wp_enqueue_script(
+    'custom-script',
+    get_template_directory_uri() . '/js/custom.js'
+  );
+}
+add_action( 'wp_enqueue_scripts', 'add_my_script' );
 
 
 function pagenation($pages = '', $range = 3){
