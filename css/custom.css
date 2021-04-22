@@ -1,6 +1,7 @@
 /**
  * Common
  */
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&display=swap');
 
 /* Pagenation */
  .pagenation-wrapper {
@@ -194,6 +195,14 @@
 .portfolio-wraper .text-center {
   padding-bottom: 20px;
 }
+/* Maxim */
+.maxim h2 {
+  font-family: 'Caveat', cursive;
+  font-size: 3.5rem;
+  color: #fff;
+  text-shadow: 3px 3px #414141;
+  line-height: 1.2;
+}
 
 /**
  * Responsive
@@ -221,6 +230,13 @@
   .btn-container {
     padding-top: 20px;
     padding-bottom: 20px;
+  }
+  /* SNS */
+  .sns-icons {
+    flex-direction: row !important;
+  }
+  .sns-icons .panel-grid-cell {
+    margin-bottom: 0 !important;
   }
   /* My detail */
   .detail-items .panel-grid-cell {
