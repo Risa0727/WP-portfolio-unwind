@@ -312,7 +312,7 @@ add_action( 'after_setup_theme', 'siteorigin_unwind_premium_setup' );
  function add_my_files() {
   //スタイルシートの読み込み
 	$handle = "my-style";
-	$src = "/wp-content/themes/siteorigin-unwind/css/custom.css";
+	$src = get_template_directory_uri() . "/css/custom.css";
 	$deps = array();
 	$ver = false;
 	$media = 'all';
