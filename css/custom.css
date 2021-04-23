@@ -197,7 +197,7 @@
 }
 /* My Skills */
 .progress-bar .box {
-  padding: 0 20px;
+  padding: 0 20px 0 0;
   box-sizing: border-box;
 }
 .progress-bar .meter {
@@ -232,7 +232,7 @@
   position: relative;
   height: 12px;
   width: 0%;
-  background: #00bcaf;
+  background: #fa4343;
 }
 .progress-bar .meter-number {
   font-size: 1.4em;
@@ -244,9 +244,9 @@
   margin-left: -30px;
   left: 0%;
   bottom: 20px;
-  color: #00bcaf;
+  color: #fa4343;
   text-align: center;
-  font-size: 1.2em;
+  /* font-size: 1.2em; */
 }
 .progress-bar .meter-percent::after {
   content: "▼";
