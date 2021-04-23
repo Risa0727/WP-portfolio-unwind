@@ -148,20 +148,6 @@
   font-size: 2em;
   margin-bottom: 0;
 }
-
-/* .detail-item {
-  padding: 17px;
-  margin: 1em;
-  max-width: 400px;
-  background: #fcfcfc;
-  border-radius: 3px;
-  box-shadow: 0 0px 20px rgb(0 0 0 / 20%);
-  transition: .3s;
-}
-.detail-item:hover {
-  box-shadow: 0 15px 25px rgb(0 0 0 / 50%);
-  transform: translateY(-4px);
-} */
 /* 各アイテム */
 .detail-items .panel-grid-cell {
   width: 280px;
@@ -209,6 +195,70 @@
   text-shadow: 3px 3px #414141;
   line-height: 1.2;
 }
+/* My Skills */
+.progress-bar .box {
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+.progress-bar .meter {
+  width: 100%;
+  max-width: 760px;
+  margin: 70px auto 0;
+}
+.progress-bar .meter-inner {
+  position: relative;
+  border-radius: 10px 10px;
+}
+.progress-bar .meter-line {
+  width: 100%;
+  position: relative;
+  height: 12px;
+  box-sizing: border-box;
+  overflow: hidden;
+  border-radius: 10px;
+}
+.progress-bar .meter-line::before {
+  position: absolute;
+  content: "";
+  width: 760px;
+  height: 12px;
+  display: block;
+  top: 0;
+  left: 0;
+  background: #ccc;
+}
+/* プログレスの値 */
+.progress-bar .meter-line-inner {
+  position: relative;
+  height: 12px;
+  width: 0%;
+  background: #00bcaf;
+}
+.progress-bar .meter-number {
+  font-size: 1.4em;
+}
+.progress-bar .meter-percent {
+  position: absolute;
+  display: block;
+  width: 60px;
+  margin-left: -30px;
+  left: 0%;
+  bottom: 20px;
+  color: #00bcaf;
+  text-align: center;
+  font-size: 1.2em;
+}
+.progress-bar .meter-percent::after {
+  content: "▼";
+  display: block;
+  line-height: 1;
+  text-align: center;
+  transform: scale(.8, .8);
+}
+
+
+
+
 
 /**
  * Responsive
