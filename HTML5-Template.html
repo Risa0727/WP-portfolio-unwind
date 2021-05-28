@@ -10,28 +10,95 @@
 
   <!-- <link rel="stylesheet" href="css/styles.css?v=1.0"> -->
 
-</head>
+<style>
 
+body {
+  font-size: 62.5%;
+}
+.box {
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+.meter {
+  width: 100%;
+  max-width: 760px;
+  margin: 70px auto 0;
+}
+.meter-inner {
+  position: relative;
+  border-radius: 10px 10px;
+}
+.meter-line {
+  width: 100%;
+  position: relative;
+  height: 12px;
+  box-sizing: border-box;
+  overflow: hidden;
+  border-radius: 10px;
+}
+.meter-line::before {
+  position: absolute;
+  content: "";
+  width: 760px;
+  height: 12px;
+  display: block;
+  top: 0;
+  left: 0;
+  background: #ccc;
+}
+/* プログレスの値 */
+.meter-line-inner {
+  position: relative;
+  height: 12px;
+  width: 0%;
+  background: #00bcaf;
+}
+.meter-num {
+  font-size: 1.4em;
+}
+.meter-percent {
+  position: absolute;
+  display: block;
+  width: 60px;
+  margin-left: -30px;
+  left: 0%;
+  bottom: 20px;
+  color: #00bcaf;
+  text-align: center;
+  font-size: 1.2em;
+}
+.meter-percent::after {
+  content: "▼";
+  display: block;
+  line-height: 1;
+  text-align: center;
+  transform: scale(.8, .8);
+}
+
+</style>
+</head>
 <body>
 
+<!--
+  プラグインに頼らずにプログレスバー
+  https://codepen.io/nekuta/pen/devxbY
+ -->
 
-<div id="Awesome" class='anim750'>
-  <div class='circle'>Hello world!</div>
-</div>
-
-<div class='sticy anim750'>
-  <div class='front circle-wrapper anim750'>
-    <div class='circle anim750'></div>
+<div class="box">
+  <div class="meter meter-30">
+    <div class="meter-inner">
+      <div class="meter-line">
+        <div class="meter-line-inner"></div>
+      </div>
+      <div class="meter-percent">
+        <span class="meter-number">0</span>%
+      </div>
+    </div>
   </div>
 </div>
 
-<h4>Peel Me!</h4>
 
-<div class='sticky anim750'>
-  <div class='back circle-wrapper anim750'>
-    <div class='circle anim750'></div>
-  </div>
-</div>
+
 
 
 </body>

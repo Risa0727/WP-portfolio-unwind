@@ -43,11 +43,11 @@
   display: none;
 }
 #masthead .sticky-bar {
-  height: 120px !important;
+  height: 85px !important;
   transition: all .5s;
 }
 #masthead .sticky-bar.is-scroll {
-  height: 80px !important;
+  height: 50px !important;
 }
 #masthead .sticky-bar.is-scroll .site-branding img {
   max-width: 50%;
@@ -266,6 +266,10 @@
 
 /* iPad */
 @media screen and (max-width:768px) {
+  /* Navigation */
+  #masthead .sticky-bar.is-scroll {
+    height: 60px !important;
+  }
   /* homepage */
   .metaslider .caption-wrap {
     /* top: 10vw !important; */
