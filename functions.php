@@ -361,3 +361,17 @@ function pagenation($pages = '', $range = 3){
         echo "</ul>\n";
     }
 }
+/* add Global site tag (gtag.js, グローバル サイトタグ）for Google Analytics */
+add_action('wp_head', 'add_google_analytics');
+function add_google_analytics(){
+	?>
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-HV2L471YKX"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'G-HV2L471YKX');
+	</script>
+	<?php
+};
