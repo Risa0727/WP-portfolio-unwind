@@ -375,3 +375,89 @@ function add_google_analytics(){
 	</script>
 	<?php
 };
+
+/**
+ *  Add custom field
+ * "My work"
+* ref: https://nanimonaikedo.jp/markup/1305/
+ */
+function myworks_custom_post_type(){
+  // $labels = array(
+  //   'name' => _x('My Works', 'post type general name'),
+  //   'singular_name' => _x('My Works', 'post type singular name'),
+  //   'add_new' => _x('Add New', 'news'),
+  //   'parent_item_colon' => ''
+  // );
+  // $args = array(
+  //   'labels' => $labels,
+  //   'public' => true,
+  //   'publicly_queryable' => true,
+  //   'show_ui' => true,
+  //   'query_var' => true,
+  //   'rewrite'  => true,
+  //   'capability_type' => 'post',
+  //   'hierarchical' => false,
+  //   'menu_position' => 4,
+  //   'has_archive' => true,
+  //   'rewrite' => array( 'slug' => 'projects'),
+  //   'supports' => array('title','editor','thumbnail')
+  // );
+  // register_post_type('news',$args);
+
+	$labels2 = array(
+		'name' => _x('My Works', 'post type general name'),
+		'singular_name' => _x('My Works', 'post type singular name'),
+		'add_new' => _x('Add New', 'projects'),
+		'parent_item_colon' => ''
+	);
+	$args2 = array(
+		'labels' => $labels2,
+		'public' => true,
+		'publicly_queryable' => true,
+		'show_ui' => true,
+		'query_var' => true,
+		'rewrite'  => true,
+		'capability_type' => 'post',
+		'hierarchical' => false,
+		'menu_position' => 4,
+		'has_archive' => true,
+		'rewrite' => array( 'slug' => 'projects'),
+		'supports' => array('title','editor','thumbnail')
+	);
+	register_post_type('projects',$args2);
+
+  $args = array(
+    'label' => 'Categories',
+    'public' => true,
+    'show_ui' => true,
+    'show_in_nav_menus' => true,
+    'show_admin_column' => true,
+    'hierarchical' => true,
+    'query_var' => true
+  );
+  register_taxonomy('project_cat','projects',$args);
+
+  $args = array(
+    'label' => 'Tags',
+    'public' => true,
+    'show_ui' => true,
+    'show_in_nav_menus' => true,
+    'show_admin_column' => true,
+    'show_ui' => true,
+    'hierarchical' => false,
+    'query_var' => true
+  );
+  register_taxonomy('project_tag','projects',$args);
+}
+add_action('init', 'myworks_custom_post_type');
+
+
+// Change the title placeholder
+function title_placeholder_change( $title ) {
+    $screen = get_current_screen();
+    if ( $screen->post_type == 'projects' ) {
+        $title = 'Project Name';
+    }
+    return $title;
+}
+add_filter( 'enter_title_here', 'title_placeholder_change' );
