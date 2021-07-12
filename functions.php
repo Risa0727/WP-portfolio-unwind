@@ -427,7 +427,7 @@ function myworks_custom_post_type(){
 	register_post_type('projects',$args2);
 
   $args = array(
-    'label' => 'Categories',
+    'label' => 'Role',
     'public' => true,
     'show_ui' => true,
     'show_in_nav_menus' => true,
@@ -438,7 +438,7 @@ function myworks_custom_post_type(){
   register_taxonomy('project_cat','projects',$args);
 
   $args = array(
-    'label' => 'Tags',
+    'label' => 'Technologies',
     'public' => true,
     'show_ui' => true,
     'show_in_nav_menus' => true,
