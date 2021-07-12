@@ -256,7 +256,109 @@
   transform: scale(.8, .8);
 }
 
+/**
+ * Project page
+ */
+  .project-wrapper {
+    margin-bottom: 50px;
+  }
+ .project-wrapper h1 {
+  text-align: center;
+  margin-bottom: 0.3em;
+ }
+.content-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.content-wrapper > div {
+  margin: 1%;
+}
+/* Image */
+.content-wrapper div.content-left {
+  flex-basis: 45vw;
+  flex-shrink: 0;
+}
 
+.content-wrapper div.content-right {
+  flex-grow: 1;
+  flex-shrink: 1;
+}
+div.content-right h2 {
+  margin-top: 0;
+  margin-bottom: 0.5em;
+}
+div.content-right p {
+  margin-bottom: 0.3em;
+}
+.project-year {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+}
+.project-year h3,
+.project-year p {
+  margin: 0 10px;
+}
+.project-btn {
+  position: relative;
+  outline: none;
+  text-decoration: none;
+  border-radius: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: Uppercase;
+  width: 160px;
+  height: 50px;
+  /* opacity: 1; */
+  background-color: #fff;
+  border: solid 1px #f76565;
+}
+.project-btn a {
+  /* color: #164ca7; */
+  font-size: 12px;
+  font-weight: 500px;
+  letter-spacing: .7px;
+}
+.project-btn:hover { animation: line-rotate .7s ease-in-out both; }
+.project-btn:hover a {
+  animation: text-storm .7s wase-in-out both;
+  animation-delay: .06s;
+}
+@keyframes line-rotate {
+  0% {
+    transform: rotate(0deg) translate3d(0, 0, 0);
+  }
+  25% {
+    transform: rotate(3deg) translate3d(0, 0, 0);
+  }
+  50% {
+    transform: rotate(-3deg) translate3d(0, 0, 0);
+  }
+  75% {
+    transform: rotate(1deg) translate3d(0, 0, 0);
+  }
+  100% {
+    transform: rotate(0deg) translate3d(0, 0, 0);
+  }
+}
+@keyframes text-storm {
+  0% {
+    transform: translate3d(0, 0, 0) translateZ(0);
+  }
+  25% {
+    transform: translate3d(4px, 0, 0) translateZ(0);
+  }
+  50% {
+    transform: translate3d(-3px, 0, 0) translateZ(0);
+  }
+  75% {
+    transform: translate3d(2px, 0, 0) translateZ(0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0) translateZ(0);
+  }
+}
 
 
 
@@ -301,6 +403,14 @@
   /* My detail */
   .detail-items .panel-grid-cell {
     margin-left: 0;
+  }
+  /* project page */
+  .content-wrapper {
+    flex-direction: column;
+  }
+  .content-wrapper > div {
+    width: 100%;
+    margin: 0;
   }
 }
 /* Mobile */
