@@ -229,7 +229,7 @@ function siteorigin_unwind_main_navigation() {
 						<span class="shopping-cart-count"><?php echo WC()->cart->cart_contents_count; ?></span>
 					</a>
 					<ul class="shopping-cart-dropdown" id="cart-drop">
-						<?php 
+						<?php
 						$instance = array(
 							'title' => '',
 						);
@@ -337,7 +337,7 @@ function siteorigin_unwind_excerpt() {
 		}
 
 	} else {
-		
+
 		$excerpt = get_the_excerpt();
 
 	}
