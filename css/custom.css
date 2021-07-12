@@ -360,7 +360,12 @@ div.content-right p {
   }
 }
 
-
+/**
+ * My work
+ */
+.blog-layout-alternate .entry-title a {
+  color: #f76565;
+}
 
 /**
  * Responsive
