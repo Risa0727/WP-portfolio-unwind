@@ -1,4 +1,12 @@
 jQuery( function( $ ) {
+  $('.moving-text').children().addBack().contents().each(function() {
+    $(this).replaceWith($(this).text().replace(/(\S)/g, '<span class="text-move">$&</span>'));
+  });
+   setTimeout(function(){
+      $(".moving-text").addClass("active");
+  },100);
+
+
   // console.log('hoge');
   // ==================================
  // Navigation gets smaller when scroll down
