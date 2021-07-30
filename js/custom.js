@@ -1,4 +1,5 @@
 jQuery( function( $ ) {
+
   $('.moving-text').children().addBack().contents().each(function() {
     $(this).replaceWith($(this).text().replace(/(\S)/g, '<span class="text-move">$&</span>'));
   });
@@ -94,5 +95,19 @@ jQuery( function( $ ) {
         }
       });
    });
+
+
+
+
+   /**
+    * This is for test @r-test-toggle
+    * http://localhost/00/portfolio/about-me/
+    */
+    $('.about-doctor-section input[type="checkbox"]').change(function(){
+      // console.log($(this));
+      $(this).next().toggleClass('is-show');
+      // $('.toggle-content').toggleClass('is-show');
+      $(this).parent().parent().parent().parent().find('.toggle-content').toggleClass('is-show');
+    });
 
 });

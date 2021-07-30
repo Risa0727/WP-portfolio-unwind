@@ -514,3 +514,57 @@ div.content-right p {
     padding-bottom: 15px;
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/**
+ * This is for test @r-test-toggle
+ * http://localhost/00/portfolio/about-me/
+ */
+ .about-doctor-section .toggle-button {
+ 	display: inline-block;
+ 	cursor: pointer;
+ 	padding: 3px 10px;
+ 	text-align: center;
+ 	/* margin-bottom: 1em; */
+ 	transition: 1s;
+ 	font-size: 45px;
+ 	transform: rotateZ( 0deg ) ;
+ }
+ .about-doctor-section .toggle-button.is-show {
+ 	transform: rotateZ(45deg);
+ }
+
+ .about-doctor-section input[type="checkbox"] {
+ 	display: none;
+ }
+ .about-doctor-section .toggle-content {
+ 	height: 0;
+ 	padding: 0;
+ 	overflow: hidden;
+ 	opacity: 0;
+ 	transition: 0.6s;
+ }
+ .about-doctor-section .toggle-content.is-show {
+ 	display: block;
+ 	height: auto;
+ 	opacity: 1;
+ 	padding: 10px 0;
+ }
