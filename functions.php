@@ -465,3 +465,43 @@ add_filter( 'enter_title_here', 'title_placeholder_change' );
 // 全てのエラー出力をオフにする
 // hide Warning
 error_reporting(0);
+
+
+
+/**
+ * カスタム投稿"My wWrks"の管理画面に投稿IDを出力する
+ * (post_type=projects)
+ * ref: https://nobu-portfolio.com/wordpress/add_filter_add_action/
+*/
+function manage_myworks_columns ($columns) {
+    $columns = array(
+				// th#id => 'display label'
+        'cb' => '<input type="checkbox" />',
+        'title' => 'Project Name',
+				'taxonomy-project_cat' => 'Role',
+				'taxonomy-project_tag' => 'Technologies',
+				'post_id' => 'Post ID', // <- this one!
+        'date' => 'Date',
+    );
+    return $columns;
+}
+function add_postid_row($column, $post_id) {
+	if( $column == 'post_id' ) {
+		echo $post_id;
+	}
+}
+add_filter('manage_edit-projects_columns', 'manage_myworks_columns');
+add_action( 'manage_posts_custom_column', 'add_postid_row', 10, 2 );
+
+
+/**
+ * アクションフックの練習
+ * Add top bar 
+ * ref: https://www.vektor-inc.co.jp/post/wordpress-about-action-hook/
+ */
+function top_bar_text(){
+    echo '<div class="my-campaign-text" style="background:#f765656e; color:#fff; text-align:center;">
+						<div class="container">I am looking for new job right now!</div>
+				 </div>';
+}
+add_action( 'wp_body_open', 'top_bar_text' );
