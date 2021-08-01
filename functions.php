@@ -496,11 +496,11 @@ add_action( 'manage_posts_custom_column', 'add_postid_row', 10, 2 );
 
 /**
  * アクションフックの練習
- * Add top bar 
+ * Add top bar
  * ref: https://www.vektor-inc.co.jp/post/wordpress-about-action-hook/
  */
 function top_bar_text(){
-    echo '<div class="my-campaign-text" style="background:#f765656e; color:#fff; text-align:center;">
+    echo '<div class="my-campaign-text" style="background:#000; color:#fff; text-align:center;">
 						<div class="container">I am looking for new job right now!</div>
 				 </div>';
 }
