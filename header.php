@@ -22,7 +22,14 @@
 <?php wp_head(); ?>
 
 <script>
-
+jQuery( function( $ ) {
+	// https://qumeru.com/magazine/494
+	$('.owl-carousel').owlCarousel({
+		items: 4,
+		margin: 10,
+		loop: true,
+	});
+});
 </script>
 
 </head>

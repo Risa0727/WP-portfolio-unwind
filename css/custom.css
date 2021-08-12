@@ -29,7 +29,12 @@
      border-color: #cf2e2e;
  }
 
-
+ /**
+  * OWL carousel
+  */
+ .owl-carousel .owl-item > div {
+ 	width: 100% !important;
+ }
 
 
  /**

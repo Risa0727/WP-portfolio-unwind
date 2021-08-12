@@ -508,3 +508,22 @@ function top_bar_text(){
 				 </div>';
 }
 add_action( 'wp_body_open', 'top_bar_text' );
+
+
+/**
+ * OWL Corousel
+ * CSS, JS 読み込み
+ * ref: https://qumeru.com/magazine/494
+ */
+function add_files() {
+	// JS
+	wp_enqueue_script('owl-js', get_template_directory_uri() . '/js/owl.carousel.js',
+		array( 'jquery' ), '20210811', true );
+
+	// CSS
+	wp_enqueue_style( 'owl-carousel', get_template_directory_uri() . '/css/owl.carousel.css',
+	 	"", '20210811' );
+	wp_enqueue_style( 'owl-theme', get_template_directory_uri() . '/css/owl.theme.default.css',
+		"", '20210811' );
+}
+add_action('wp_enqueue_scripts', 'add_files');
