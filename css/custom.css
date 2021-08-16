@@ -32,9 +32,24 @@
  /**
   * OWL carousel
   */
- .owl-carousel .owl-item > div {
- 	width: 100% !important;
- }
+.owl-carousel {
+  position: relative;/* for arrow navigation */
+}
+.owl-carousel .owl-nav > button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 50px !important;
+}
+.owl-carousel .owl-nav > button.owl-prev {
+  left: 0;
+}
+.owl-carousel .owl-nav > button.owl-next {
+  right: 0;
+}
+.owl-carousel .owl-item > div {
+	width: 100% !important;
+}
 
 
  /**

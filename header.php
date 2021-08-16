@@ -28,6 +28,22 @@ jQuery( function( $ ) {
 		items: 4,
 		margin: 10,
 		loop: true,
+		nav: true,
+		center: true,
+		// responsive: {
+    //   // ブレイクポイント0px以上
+    //   0: {
+    //     items: 2,
+    //   },
+    //   // ブレイクポイント560px以上
+    //   600: {
+    //     items: 3,
+    //   },
+    //   // ブレイクポイント980px以上
+    //   780: {
+    //     items: 4,
+    //   },
+		// },
 	});
 });
 </script>
