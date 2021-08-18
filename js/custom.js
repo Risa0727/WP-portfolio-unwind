@@ -97,6 +97,33 @@ jQuery( function( $ ) {
    });
 
 
+   /**
+  * @r-tab-function
+  * Switch display by clicking tab
+  */
+
+ // All screen is shown as default
+ $('.tab-fuction-wrap .panel-0').parent().addClass('is-show');
+
+ $('.tab-fuction-wrap .tab').on('click',function(){
+   var idx=$('.tab').index(this);
+
+   // tab
+   $(this).addClass('is-active').siblings('.tab').removeClass('is-active');
+
+   // panel
+   var targetPanel = 'panel-' + idx;
+   $('.tab-fuction-wrap .panel').each(function(index, element){
+     if ($(element).hasClass('is-show')) {
+       $(element).removeClass('is-show');
+       $(element).parent().removeClass('is-show');
+
+     }
+   })
+   $('.' + targetPanel).addClass('is-show');
+   $('.' + targetPanel).parent().addClass('is-show');
+ });
+
 
 
    /**
