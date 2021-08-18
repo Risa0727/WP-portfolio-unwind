@@ -377,7 +377,7 @@ function add_google_analytics(){
 };
 
 /**
- *  Add custom field
+ *  Add custom Post type
  * "My work"
 * ref: https://nanimonaikedo.jp/markup/1305/
  */
@@ -450,6 +450,60 @@ function myworks_custom_post_type(){
   register_taxonomy('project_tag','projects',$args);
 }
 add_action('init', 'myworks_custom_post_type');
+
+/**
+ *  Add custom Post type
+ * "Sandbox"
+* ref: https://nanimonaikedo.jp/markup/1305/
+ */
+function sandbox_custom_post_type(){
+
+	$labels3 = array(
+		'name' => _x('Sandbox', 'post type general name'),
+		'singular_name' => _x('Sandbox', 'post type singular name'),
+		'add_new' => _x('Add New', 'sandbox'),
+		'parent_item_colon' => ''
+	);
+	$args3 = array(
+		'labels' => $labels3,
+		'public' => true,
+		'publicly_queryable' => true,
+		'show_ui' => true,
+		'query_var' => true,
+		'rewrite'  => true,
+		'capability_type' => 'post',
+		'hierarchical' => false,
+		'menu_position' => 5,
+		'has_archive' => true,
+		'rewrite' => array( 'slug' => 'sandbox'),
+		'supports' => array('title','editor','thumbnail')
+	);
+	register_post_type('sandbox',$args3);
+
+  $args = array(
+    'label' => 'Categories',
+    'public' => true,
+    'show_ui' => true,
+    'show_in_nav_menus' => true,
+    'show_admin_column' => true,
+    'hierarchical' => true,
+    'query_var' => true
+  );
+  register_taxonomy('sandbox_cat','sandbox',$args);
+
+  $args = array(
+    'label' => 'Tags',
+    'public' => true,
+    'show_ui' => true,
+    'show_in_nav_menus' => true,
+    'show_admin_column' => true,
+    'show_ui' => true,
+    'hierarchical' => false,
+    'query_var' => true
+  );
+  register_taxonomy('sandbox_tag','sandbox',$args);
+}
+add_action('init', 'sandbox_custom_post_type');
 
 
 // Change the title placeholder
