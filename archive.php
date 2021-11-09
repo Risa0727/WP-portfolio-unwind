@@ -19,7 +19,7 @@ get_header(); ?>
 
 		<main id="main" class="site-main">
 
-			<?php 
+			<?php
 			if ( is_tax( 'jetpack-portfolio-type' ) || is_tax( 'jetpack-portfolio-tag' ) ) :
 
 				if ( have_posts() ) : ?>

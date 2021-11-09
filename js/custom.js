@@ -17,6 +17,7 @@ jQuery( function( $ ) {
    // var navi = $('.site-navigation');
    // $scroll = $(window).scrollTop();
    var headerH = header.outerHeight(true);
+   // console.log(headerH);
 
 
    $(window).on('scroll', function() {

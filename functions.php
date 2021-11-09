@@ -581,3 +581,35 @@ function add_files() {
 		"", '20210811' );
 }
 add_action('wp_enqueue_scripts', 'add_files');
+
+/**
+ * DashboardのメニューのIDを確認する
+ */
+// function remove_menus() {
+// 	global $menu;
+// 	// var_dump( $menu );
+// }
+// add_action( 'admin_menu', 'remove_menus');
+/**
+ * DashboardのサブメニューのIDを確認する
+ */
+// function remove_menus() {
+// 	global $submenu;
+// 	var_dump( $submenu );
+// }
+// add_action( 'admin_menu', 'remove_menus');
+
+
+// function hogeFunc() {
+// 	return get_bloginfo('name');
+// }
+// add_shortcode('hoge', 'hogeFunc');
+
+function hogeFunc($atts) {
+    extract(shortcode_atts(array(
+        'num' => 0,
+    ), $atts));
+
+    return $num * 2;
+}
+add_shortcode('hoge', 'hogeFunc');

@@ -462,6 +462,7 @@
  */
   .project-wrapper {
     margin-bottom: 50px;
+    padding-bottom: 50px;
   }
  .project-wrapper h1 {
   text-align: center;

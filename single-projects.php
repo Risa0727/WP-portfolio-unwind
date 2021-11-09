@@ -48,6 +48,19 @@ get_header(); ?>
 						</div>
 					</div><!-- .content-left -->
 				</div><!-- .content-wrapper -->
+				<?php
+				//リンクを出力：the_post_navigation() を使う場合の例
+				// https://www.webdesignleaves.com/pr/wp/wp_func_pager.html
+				$args = array(
+				    'mid_size' => 1,
+				    'prev_text' => '&lt;&lt;PREVIOUS： %title',
+				    'next_text' => '%title：NEXT&gt;&gt;',
+				    'screen_reader_text' => ' ',
+				);
+				the_post_navigation($args);
+
+
+				 ?>
 			<?php endwhile; endif; ?>
 		</main><!-- #main -->
 	</div><!-- #primary -->
