@@ -178,6 +178,15 @@
 #masthead .sticky-bar.is-scroll .site-branding img {
   max-width: 50%;
 }
+/**
+ * パンくずリスト(breadcrumbs)
+ */
+ .breadcrumbs {
+   margin-top: 10px;
+ }
+ .home .breadcrumbs {
+   display: none;
+ }
 
 /**
  * Footer
