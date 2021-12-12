@@ -518,7 +518,7 @@ add_filter( 'enter_title_here', 'title_placeholder_change' );
 
 // 全てのエラー出力をオフにする
 // hide Warning
-error_reporting(0);
+// error_reporting(0);
 
 
 

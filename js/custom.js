@@ -1,4 +1,30 @@
 jQuery( function( $ ) {
+  /**
+   * -@r-test-modal
+   */
+  // モーダルウィンドウを開く
+  $('.modal-item__open').on('click', function(){
+    var target = $(this).data('target');
+    var modal = document.getElementById(target);
+    scrollPosition = $(window).scrollTop();
+
+    $('body').addClass('fixed').css({'top': -scrollPosition});
+    // $(modal).fadeIn();
+    $(modal).show();
+    return false;
+  });
+
+  // モーダルウィンドウを閉じる
+  $('.modal-item__close').on('click', function(){
+    $('body').removeClass('fixed');
+    window.scrollTo( 0 , scrollPosition );
+    // $('.js-modal').fadeOut();
+    $('.modal-item__js').hide();
+    return false;
+  });
+// -- end-modal
+
+
 
   $('.moving-text').children().addBack().contents().each(function() {
     $(this).replaceWith($(this).text().replace(/(\S)/g, '<span class="text-move">$&</span>'));
@@ -137,5 +163,8 @@ jQuery( function( $ ) {
       // $('.toggle-content').toggleClass('is-show');
       $(this).parent().parent().parent().parent().find('.toggle-content').toggleClass('is-show');
     });
+
+
+
 
 });

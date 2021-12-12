@@ -406,6 +406,9 @@
   line-height: 1.2;
 }
 /* My Skills */
+.progress-bars .progress-bar {
+  background-color: transparent;
+}
 .progress-bar .box {
   padding: 0 20px 0 0;
   box-sizing: border-box;
@@ -577,6 +580,88 @@ div.content-right p {
 .blog-layout-alternate .entry-title a {
   color: #f76565;
 }
+
+
+/**
+ * @r-test-modal
+ */
+.modal-item__dialog {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+}
+.modal-item__bg{
+  position: absolute;
+  height: 100vh;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.8);
+}
+.modal-item__content{
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translateX(-50%);
+  overflow-y: scroll;
+  height: 70vh;
+  width: 60%;
+  background: white;
+  padding: 30px 20px;
+}
+/* close button */
+a.modal-item__close-btn {
+  z-index: 20;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 35px;
+  color: #95979c;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 35px;
+  text-align: center;
+  text-decoration: none;
+  text-indent: 0;
+}
+.modal-item__close-btn:hover {
+  color: #2b2e38;
+}
+
+/* モーダルウィンドウ表示中に記事本体を固定 */
+body.fixed {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  overflow: hidden;
+}
+/* これがないと上手く動かない */
+[canvas] {
+  /* transform: none !important; */
+}
+/**
+ * -@r-test-modal
+ */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /**
  * Responsive
