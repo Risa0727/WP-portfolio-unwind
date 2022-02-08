@@ -574,6 +574,11 @@ function add_files() {
 	wp_enqueue_script('owl-js', get_template_directory_uri() . '/js/owl.carousel.js',
 		array( 'jquery' ), '20210811', true );
 
+	if (is_page('shop')) {
+		wp_enqueue_script('google-map-js', get_template_directory_uri() . '/js/google-map.js',
+			array(), '20220208', true );
+	}
+
 	// CSS
 	wp_enqueue_style( 'owl-carousel', get_template_directory_uri() . '/css/owl.carousel.css',
 	 	"", '20210811' );
@@ -613,3 +618,170 @@ function hogeFunc($atts) {
     return $num * 2;
 }
 add_shortcode('hoge', 'hogeFunc');
+
+/**
+* Add shop post type setting with custome post type
+*/
+function create_shop_post_type() {
+    register_post_type(
+    'shop',
+        array(
+            'label' => 'Shops',
+            'labels' => array(
+                'singular_name' => 'Shop',
+                'menu_name' => 'Shops',
+                'all_items' => 'All Shops',
+                'add_new_item' => 'Add New',
+                'add_new' => 'Add New',
+                'new_item' => 'Add New',
+                'edit_item' => 'Edit',
+                'view_item' => 'Show',
+                'not_found' => 'Canot find',
+                'not_found_in_trash' => 'ゴミ箱にはありません。',
+                'search_items' => 'ショップ検索',
+                ),
+            'public' => true,
+            'publicly_queryable' => true,
+            'show_ui' => true,
+            'show_in_menu' => true,
+            'show_in_rest' => true,
+            'rest_base' => 'shops',
+            'query_var' => false,
+            'has_archive' => true,
+            'hierarchical' => false,
+            'menu_position' => 5,
+            'rewrite' => true,
+            'supports' => array( 'title', 'editor', 'thumbnail'),
+        )
+    );
+    register_taxonomy(
+        'shop_category',
+        'shop',
+            array(
+            'hierarchical' => true,
+            'update_count_callback' => '_update_post_term_count',
+            'label' => 'Categories',
+            'singular_label' => 'Category',
+            'public' => true,
+            'show_ui' => true,
+            'show_in_rest' => true
+        )
+    );
+}
+// アクションにcreate_shop_post_type関数をフック
+add_action( 'init', 'create_shop_post_type' );
+/**
+* shop custom post type.
+* add colum
+* https://b-risk.jp/blog/2017/02/wp_admin_list_columns/
+*/
+function set_shop_columns($columns) { //管理画面の一覧に表示するタイトルを設置
+    $columns = [
+        'title' => 'Title',
+				'taxonomy-shop_category' => 'Category',
+				'date' => 'Date',
+    ];
+    return $columns;
+}
+function add_shop_column($column_name, $post_id) { //管理画面の一覧に内容を表示
+    if (in_array($column_name, [
+					'title',
+					'start_date',
+					'finish_date',
+					'price','venue',
+					'phone',
+					'web',
+					'email',
+					'organiser'])) {
+        $stitle = get_post_meta($post_id, $column_name, true);
+    }
+    if (isset($stitle) && $stitle) {
+        echo esc_attr($stitle);
+    } else {
+        echo __('None');
+    }
+}
+add_filter('manage_shop_posts_columns', 'set_shop_columns'); //set_shop_columnsを発動
+add_action('manage_shop_posts_custom_column', 'add_shop_column', 10, 2); //add_snowholiday_columnを発動
+
+/**
+* Read a file called "admin-ajax.php" only when list page
+* WordPressでAjaxを使うには"admin-ajax.php"が必要
+*/
+function add_my_ajaxurl() {
+  if ( is_page( 'shop' ) ) {
+    ?>
+      <script>
+        var ajaxurl = '<?php echo admin_url( 'admin-ajax.php'); ?>';
+      </script>
+			<!-- Google Map API -->
+			<script defer src="https://maps.googleapis.com/maps/api/js?language=en&key=AIzaSyAwiIOLEx1VGuwXCz6ARuqlPjUaIvXiQFY&callback=initMap"></script>
+    <?php
+  }
+}
+add_action( 'wp_head', 'add_my_ajaxurl', 1 );
+
+/**
+* get posts according to the specified category
+* Ajaxを受け取るアクションを指定(google-map.js)
+* ref: https://haniwaman.com/wordpress-ajax/
+*/
+function get_select_post() {
+  // Items by category
+  $terms = "all"; // category name
+  $args = []; // parameter for get_posts()
+  $info = []; // marker items on google map
+	$taxonomy = 'shop_category';
+  global $post;
+
+  if (isset($_POST['cat']) && ($_POST['cat'] !== 'all')) {
+    $terms = htmlspecialchars($_POST['cat']);
+    $args = array(
+    	 'posts_per_page' => -1,
+    	 'post_type' => 'shop',
+    	 'post_status' => 'publish',
+       'tax_query' => array(
+                    		array(
+                    			'taxonomy' => $taxonomy,
+                    			'field' => 'slug',
+                    			'terms' => $terms
+                    		)
+    	 ),
+    );
+  } else {
+    // get all items
+    $args = array(
+      'post_type' => 'shop',
+      'post_status' => 'publish',
+      'posts_per_page' => -1,
+      // 'paged' => $paged
+    );
+  }
+
+
+  $posts_array = get_posts($args);
+  $tmp = [];
+  foreach ($posts_array as $post) {
+    setup_postdata($post);
+    array_push(
+      $tmp,
+      array(
+				'name' => $post->post_title,
+        'address' => get_field('address'),
+        'phone' => get_field('phone'),
+        'email' => get_field('email'),
+        'website' => get_field('website'),
+      )
+    );
+    wp_reset_postdata();
+  }
+  $info[$terms] = $tmp;
+  $json = json_encode($info[$terms], JSON_UNESCAPED_UNICODE);
+   echo $json;
+
+   wp_die();
+}
+// for logged in user
+add_action( 'wp_ajax_get_select_post', 'get_select_post' );
+// for user who is not logged in
+add_action( 'wp_ajax_nopriv_get_select_post', 'get_select_post' );
