@@ -17,7 +17,7 @@ jQuery( function($) {
       success: function(data) {
         info = JSON.parse(data);
         // マップの更新
-        initMap();
+        // initMap();
 
         // 記事一覧の更新
         updateArticles(info);

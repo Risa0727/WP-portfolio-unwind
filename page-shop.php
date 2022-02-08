@@ -124,7 +124,7 @@ let info = JSON.parse('<?php echo $json; ?>');
 <div class="container my-5">
 	<div class="row">
 		<div class="col-12">
-			<!-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d216085.6500987104!2d130.62488857027233!3d32.19511418673048!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x353f7187b1202ffd%3A0xcea45879742d5612!2sHitoyoshi%2C%20Kumamoto!5e0!3m2!1sen!2sjp!4v1642729153847!5m2!1sen!2sjp" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe> -->
+			<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d216085.6500987104!2d130.62488857027233!3d32.19511418673048!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x353f7187b1202ffd%3A0xcea45879742d5612!2sHitoyoshi%2C%20Kumamoto!5e0!3m2!1sen!2sjp!4v1642729153847!5m2!1sen!2sjp" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
       <div id="gmap"></div>
 		</div>
 	</div>

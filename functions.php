@@ -715,7 +715,7 @@ function add_my_ajaxurl() {
         var ajaxurl = '<?php echo admin_url( 'admin-ajax.php'); ?>';
       </script>
 			<!-- Google Map API -->
-			<script defer src="https://maps.googleapis.com/maps/api/js?language=en&key=AIzaSyAwiIOLEx1VGuwXCz6ARuqlPjUaIvXiQFY&callback=initMap"></script>
+			<!-- <script defer src="https://maps.googleapis.com/maps/api/js?language=en&key=AIzaSyAwiIOLEx1VGuwXCz6ARuqlPjUaIvXiQFY&callback=initMap"></script> -->
     <?php
   }
 }
