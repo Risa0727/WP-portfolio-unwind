@@ -557,22 +557,6 @@ add_action( 'manage_posts_custom_column', 'add_postid_row', 10, 2 );
 
 
 /**
- * アクションフックの練習
- * Add top bar
- * ref: https://www.vektor-inc.co.jp/post/wordpress-about-action-hook/
- */
-function top_bar_text(){
-	// 自作プラグインから文字の読み込み
-	$showtext = new ShowText();
-
-    echo '<div class="my-campaign-text" style="background:#000; color:#fff; text-align:center;">
-						<div class="container">'. esc_html($showtext->get_text()) .'</div>
-				 </div>';
-}
-add_action( 'wp_body_open', 'top_bar_text' );
-
-
-/**
  * OWL Corousel
  * CSS, JS 読み込み
  * ref: https://qumeru.com/magazine/494
