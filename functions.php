@@ -328,8 +328,16 @@ add_action('wp_enqueue_scripts', 'add_my_files');
 // Add js file
 function add_my_script() {
   wp_enqueue_script(
+    'bgswitcher-script',
+    get_template_directory_uri() . '/js/jquery.bgswitcher.js',
+		array(),
+		'',
+  );
+  wp_enqueue_script(
     'custom-script',
-    get_template_directory_uri() . '/js/custom.js'
+    get_template_directory_uri() . '/js/custom.js',
+		array(),
+		'',
   );
 }
 add_action( 'wp_enqueue_scripts', 'add_my_script' );
