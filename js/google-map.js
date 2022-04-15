@@ -1,37 +1,37 @@
 jQuery( function($) {
-  console.log('最初のinfo:');
-  console.log(info);
+  if (typeof info !== 'undefined') {
+    console.log('最初のinfo:');
+    console.log(info);
 
 
-  $('.gmap-btn').on('click', function(event){
-    let cat = $(this).data('cat');
+    $('.gmap-btn').on('click', function(event){
+      let cat = $(this).data('cat');
 
-    $.ajax({
-      type: "POST",
-      url: ajaxurl,
-      data: {
-        "action": 'get_select_post',
-        "cat": cat,
-      },
-      dataType: "text",
-      success: function(data) {
-        info = JSON.parse(data);
-        // マップの更新
-        // initMap();
+      $.ajax({
+        type: "POST",
+        url: ajaxurl,
+        data: {
+          "action": 'get_select_post',
+          "cat": cat,
+        },
+        dataType: "text",
+        success: function(data) {
+          info = JSON.parse(data);
+          // マップの更新
+          // initMap();
 
-        // 記事一覧の更新
-        updateArticles(info);
+          // 記事一覧の更新
+          updateArticles(info);
 
-        console.log("click後のinfo:");
-        console.log(info);
-      },
-      error: function(e) {
-        console.log(e);
-      }
-    });
-
-
-  }); // on click
+          console.log("click後のinfo:");
+          console.log(info);
+        },
+        error: function(e) {
+          console.log(e);
+        }
+      });
+    }); // on click
+  }
 });
 /* ================================================== *
  *
