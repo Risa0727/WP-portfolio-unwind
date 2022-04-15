@@ -1,6 +1,7 @@
 <?php
 /*
 Template Name: page-shop
+Template Post Type: sandbox
 */
 get_header();
 ?>
