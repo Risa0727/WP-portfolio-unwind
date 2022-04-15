@@ -33,15 +33,22 @@ get_header(); ?>
 						<div class="project-tec"><?php echo get_the_term_list($post->ID,'project_tag','',' | '); ?></div>
 						<?php
 							// Load field value.
-							$dateStr = get_field('year');
-							$date = new DateTime();
-							$date = DateTime::createFromFormat('d/m/Y', $dateStr);
-							// show only Month and Year
-							// echo $date->format('M Y');
+							$date = '';
+							if (!empty(get_field('year'))) {
+								$dateStr = get_field('year');
+								$date = DateTime::createFromFormat('d/m/Y', $dateStr);
+							}
 						?>
 						<div class="project-year">
 							<h3 class="sub-title title-h3">Year</h3>
-							<p><?php echo $date->format('M Y'); ?></p>
+							<?php
+							 	if($date) {
+									echo '<p>' . $date->format('M Y') . '</p>';
+								} else {
+									echo '---';
+								}
+							?>
+							<!-- <p><?php echo $date->format('M Y'); ?></p> -->
 						</div>
 						<div class="project-btn">
 							<a href="<?php the_field('project_url'); ?>" target="_blank">View Website</a>
