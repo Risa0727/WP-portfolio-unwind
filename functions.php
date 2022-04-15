@@ -566,7 +566,7 @@ function add_files() {
 	wp_enqueue_script('owl-js', get_template_directory_uri() . '/js/owl.carousel.js',
 		array( 'jquery' ), '20210811', true );
 
-	if (is_page('shop')) {
+	if ('sandbox' == 	get_post_type()) {
 		wp_enqueue_script('google-map-js', get_template_directory_uri() . '/js/google-map.js',
 			array(), '20220208', true );
 	}
@@ -701,7 +701,8 @@ add_action('manage_shop_posts_custom_column', 'add_shop_column', 10, 2); //add_s
 * WordPressでAjaxを使うには"admin-ajax.php"が必要
 */
 function add_my_ajaxurl() {
-  if ( is_page( 'shop' ) ) {
+  // if ( is_page( 'shop-ajax-and-google-map-api' ) ) {
+	if ('sandbox' == get_post_type()) {
     ?>
       <script>
         var ajaxurl = '<?php echo admin_url( 'admin-ajax.php'); ?>';
