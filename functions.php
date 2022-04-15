@@ -480,11 +480,11 @@ function sandbox_custom_post_type(){
 		'query_var' => true,
 		'rewrite'  => true,
 		'capability_type' => 'post',
-		'hierarchical' => false,
+		'hierarchical' => true,
 		'menu_position' => 5,
 		'has_archive' => true,
 		'rewrite' => array( 'slug' => 'sandbox'),
-		'supports' => array('title','editor','thumbnail')
+		'supports' => array('title','editor','thumbnail', 'page-attributes')
 	);
 	register_post_type('sandbox',$args3);
 
