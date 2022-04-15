@@ -11,6 +11,12 @@
 
 get_header(); ?>
 
+<?php
+// $cat = get_the_category();
+// // $cat = $cat[0];
+// 	var_dump($cat);
+?>
+
 	<?php siteorigin_unwind_breadcrumbs(); ?>
 
 	<div id="primary" class="content-area">
@@ -41,9 +47,9 @@ get_header(); ?>
 
 
 
-			if ( ! is_attachment() && siteorigin_setting( 'blog_display_related_posts' ) ) :
-				siteorigin_unwind_related_posts( $post->ID );
-			endif;
+			// if ( ! is_attachment() && siteorigin_setting( 'blog_display_related_posts' ) ) :
+			// 	siteorigin_unwind_related_posts( $post->ID );
+			// endif;
 
 
 
